@@ -187,7 +187,7 @@ class OnlineRetention():
     
         
     
-    def get_base_model(self,X=None,y =None,name,model):
+    def get_base_model(self,name,model,X=None,y =None):
         
         if X is None or y is None:
             X,y = self.X,self.y
