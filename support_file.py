@@ -178,7 +178,29 @@ class OnlineRetention():
            names.append(name)
            print(name,cv_results.mean(), cv_results.std())
     
+    
+    def get_imbalanced_feature(self,feature_imb=None):
+        if feature_imb is None:
+            feature_imb = self.y
         
+        return (self.df[feature_imb]/self.size)*100
+    
+        
+    
+    def get_base_model(self,X=None,y =None,name,model):
+        
+        if X is None or y is None:
+            X,y = self.X,self.y
+        results = []
+        names = []
+        kfold = KFold(n_splits=50, random_state=self.random_st)
+        cv_results = cross_val_score(model, X, y, cv=kfold, scoring="accuracy")
+        results.append(cv_results)
+        #names.append(name)
+        print(name,cv_results.mean(), cv_results.std())
+    
+    
+    
     #def get_sampled_data()
         
        
