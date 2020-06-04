@@ -1,0 +1,6 @@
+scipy==1.2.1
+opencv_python==4.1.1.26
+json
+split_folder
+joblib
+argparse
